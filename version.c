@@ -50,3 +50,11 @@ void dispSWvers(void){
    	puts0(buf);
    	puts0("'?' for help, '? ?' for detailed help");
 }
+
+//-----------------------------------------------------------------------------
+// ledSWvers() returns pointer to LED SW version
+//-----------------------------------------------------------------------------
+unsigned char* ledSWvers(void){
+
+	return led_versnum;
+}

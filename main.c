@@ -59,6 +59,8 @@
  *    				 	and 21/31 for several years between 2000 and 2404 (using the "Q" test command via the CLI).
  *    				 Changed reset banner from "GPS Slaved RTC..." to "GPS Slaved Wall Clock..."
  *    				 Fleshed out help screen cmd list.
+ *    				 Added LED software version string to version.h and pointer return function, ledSWvers(), to
+ *    				 	localize the LED version string with the serial version strings for easier update.
  *
  *    <VERSION 0.3 & 0.4>
  *    -- rev-notes lost --
@@ -1704,9 +1706,10 @@ void process_IO(U8 flag, U8 iplpio){
 				parse_fmain("SW VERSION");
 			}else{
 				set_sbright('a');
-				parse_fmain("GPS AUX002");
+//				parse_fmain("GPS AUX002");ledSWvers(void)
+				parse_fmain(ledSWvers());
 				parse_fpl("LEDU");
-				parse_fsub("  =J0EH=");
+				parse_fsub("  GPSAUX");
 				set_sbright('s');
 			}
 			break;
